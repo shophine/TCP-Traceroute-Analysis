@@ -394,4 +394,3 @@
     212.58.244.68.80 > 128.192.76.178.46518: Flags [S.], cksum 0xe667 (correct), seq 3628067946, ack 2741803627, win 5792, options [mss 1460,sackOK,TS val 2416423782 ecr 1090680828,nop,wscale 7], length 0
 1296184417.796236 IP (tos 0x30, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 40)
     128.192.76.178.46518 > 212.58.244.68.80: Flags [R], cksum 0x2610 (correct), seq 2741803627, win 0, length 0
-

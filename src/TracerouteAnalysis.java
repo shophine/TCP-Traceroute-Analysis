@@ -1,4 +1,8 @@
+import jdk.swing.interop.SwingInterOpUtils;
+
 import java.io.*;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -9,12 +13,12 @@ import java.util.regex.Pattern;
 public class TracerouteAnalysis {
     public static void main(String[] args) {
 
-        String filename = args[0];
-
-        //removing blank lines from text file
-        sanitizeInputFile(filename);
-        File file = new File(filename);
         try{
+            String filename = args[0];
+            //removing blank lines from text file
+            sanitizeInputFile(filename);
+
+            File file = new File(filename);
             Scanner scanner = new Scanner(file);
             ArrayList<String> arrayList = new ArrayList<>();
 
@@ -111,9 +115,11 @@ public class TracerouteAnalysis {
             ArrayList<Integer> packetNumberForTTL = new ArrayList<>();
             ArrayList<String> rttFinal = new ArrayList<>();
 
+            int flag;
             //for every TTL
             for(int i=0;i<ttlOrder.size();i++){
                 rttFinal.clear();
+                flag=0;
                 //Getting the corresponding TCP Packets
                 getPacketNumbers(ttlOrder.get(i),tcpPackets,icmpPackets,packetNumberForTTL);
 
@@ -124,18 +130,17 @@ public class TracerouteAnalysis {
 
                         //Check the matching IP in ICMP Packets
                         if(idt==idInICMP.get(k)){
+                            flag++;
                             String timeStamp2 = getTimeStampFromICMPPacket(icmpPackets,k);
                             String timeStamp1 = getTimeStampFromTCPPacket(tcpPackets,pkNumber);
                             String printableIP = getIPFromICMPPacket(icmpPackets,k);
                             String rtt = calculateRTT(timeStamp2, timeStamp1);
-                            if(j==0) {
+                            if(flag==1){
                                 System.out.println("TTL "+ttlOrder.get(i));
+                            }
+                            //if the packet comes from different IP
+                            if(!rttFinal.contains(printableIP)) {
                                 System.out.println(printableIP);
-                            }else {
-                                //if the packet comes from different IP
-                                if(!rttFinal.contains(printableIP)) {
-                                    System.out.println(printableIP);
-                                }
                             }
                             System.out.println(rtt);
                             rttFinal.add(printableIP);
@@ -145,8 +150,9 @@ public class TracerouteAnalysis {
                 packetNumberForTTL.clear();
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
             System.out.println("File not found");
+            e.printStackTrace();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -183,8 +189,17 @@ public class TracerouteAnalysis {
         double rtt = ts2-ts1;
         rtt=rtt*1000;
 
+        BigDecimal bigDecimal = new BigDecimal(Double.toString(rtt));
+        bigDecimal = bigDecimal.setScale(3, BigDecimal.ROUND_HALF_UP);
+        DecimalFormat myFormatter = new DecimalFormat("0.000");
+        String finalRTT = myFormatter.format(Double.parseDouble(bigDecimal.toString()));
+       // System.out.println(finalRTT);
+
+/*
         DecimalFormat df = new DecimalFormat("#.###");
         String finalRTT = df.format(rtt);
+        return finalRTT+" ms";*/
+
         return finalRTT+" ms";
 
     }

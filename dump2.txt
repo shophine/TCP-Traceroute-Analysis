@@ -316,4 +316,3 @@
     137.138.144.168.80 > 128.192.76.178.37148: Flags [S.], cksum 0xbb30 (correct), seq 2415447682, ack 4156582770, win 16384, options [mss 1460,nop,wscale 0,nop,nop,TS val 0 ecr 0,nop,nop,sackOK], length 0
 1296181912.918446 IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 40)
     128.192.76.178.37148 > 137.138.144.168.80: Flags [R], cksum 0xd39b (correct), seq 4156582770, win 0, length 0
-

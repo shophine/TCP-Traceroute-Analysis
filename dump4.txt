@@ -488,4 +488,3 @@
     128.192.76.178 > 128.192.1.193: ICMP 128.192.76.178 udp port 47064 unreachable, length 68
 	IP (tos 0x0, ttl 60, id 3892, offset 0, flags [none], proto UDP (17), length 60)
     128.192.1.193.53 > 128.192.76.178.47064: 1800 ServFail[|domain]
-

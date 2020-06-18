@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Traceroute Analysis:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Traceroute_Analysis_jar</output-path>
+    <root id="archive" name="Traceroute Analysis.jar">
+      <element id="module-output" name="Traceroute Analysis" />
+    </root>
+  </artifact>
+</component>

@@ -130,4 +130,3 @@
 1293891853.720419 IP (tos 0x0, ttl 18, id 59023, offset 0, flags [none], proto TCP (6), length 60) 128.192.76.177.60756 > 137.138.144.168.80: S, cksum 0xdb2f (correct), 2901236137:2901236137(0) win 5840 <mss 1460,sackOK,timestamp 1592073024 0,nop,wscale 2>
 1293891853.853195 IP (tos 0x0, ttl 113, id 20431, offset 0, flags [none], proto TCP (6), length 64) 137.138.144.168.80 > 128.192.76.177.60756: S, cksum 0xb04b (correct), 2112809941:2112809941(0) ack 2901236138 win 16384 <mss 1460,nop,wscale 0,nop,nop,timestamp 0 0,nop,nop,sackOK>
 1293891853.853211 IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 40) 128.192.76.177.60756 > 137.138.144.168.80: R, cksum 0xd3ff (correct), 2901236138:2901236138(0) win 0
-

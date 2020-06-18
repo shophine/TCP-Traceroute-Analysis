@@ -121,4 +121,3 @@
 1291654313.368194 IP (tos 0x0, ttl 17, id 9117, offset 0, flags [none], proto TCP (6), length 60) 128.192.76.177.52783 > 137.138.144.168.80: S, cksum 0x0861 (correct), 197276676:197276676(0) win 5840 <mss 1460,sackOK,timestamp 2152510109 0,nop,wscale 2>
 1291654313.504060 IP (tos 0x0, ttl 113, id 9445, offset 0, flags [none], proto TCP (6), length 64) 137.138.144.168.80 > 128.192.76.177.52783: S, cksum 0xd0b4 (correct), 3267783818:3267783818(0) ack 197276677 win 16384 <mss 1460,nop,wscale 0,nop,nop,timestamp 0 0,nop,nop,sackOK>
 1291654313.504076 IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 40) 128.192.76.177.52783 > 137.138.144.168.80: R, cksum 0xb9f5 (correct), 197276677:197276677(0) win 0
-
